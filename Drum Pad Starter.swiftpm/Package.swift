@@ -34,9 +34,15 @@ let package = Package(
             ]
         )
     ],
+    dependencies: [
+        .package(url: "https://github.com/AudioKit/AudioKitUI", "0.3.6"..<"1.0.0")
+    ],
     targets: [
         .executableTarget(
             name: "AppModule",
+            dependencies: [
+                .product(name: "AudioKitUI", package: "AudioKitUI")
+            ],
             path: ".",
             resources: [
                 .process("Resources")

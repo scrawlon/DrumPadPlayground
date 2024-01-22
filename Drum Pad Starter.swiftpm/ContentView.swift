@@ -1,4 +1,5 @@
 import SwiftUI
+import AudioKitUI
 
 struct ContentView: View {
     @Environment(\.openURL) var openURL
