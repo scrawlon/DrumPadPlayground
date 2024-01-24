@@ -2,6 +2,7 @@ import SwiftUI
 import AudioKitUI
 
 struct ContentView: View {
+    @EnvironmentObject var conductor: Conductor
     @Environment(\.openURL) var openURL
 
     let padding: CGFloat = 30
@@ -72,6 +73,10 @@ struct ContentView: View {
                 }.frame(height: 30)
 
                 // Drum pads go here
+                TapCountingDrumPadGrid(names: conductor.drumSamples.map { $0.name }) {
+                    tapCounts in
+                        conductor.drumPadTouchCounts = tapCounts
+                }
                 
             }.padding(padding)
         }

@@ -2,10 +2,11 @@ import SwiftUI
 
 @main
 struct DrumPadAppApp: App {
+    let conductor = Conductor()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(conductor)
         }
     }
 }
